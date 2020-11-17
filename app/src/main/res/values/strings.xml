@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">KeepMeOut-Ui</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="title_device_lock">Device Lock</string>
+    <string name="title_scheduled">Schedule</string>
+
+    <string name="settings_menu">Settings</string>
+    <string name="rate_menu">Rate</string>
+    <string name="contact_menu">Contact for support</string>
+    <string name="facebook" translatable="false">Facebook page</string>
+    <string name="help_title">Help/FAQ</string>
+    <string name="label_lock_warning">Your Device will locked for the above dialed time</string>
 </resources>

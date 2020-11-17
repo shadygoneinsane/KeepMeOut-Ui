@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="vikesh.dass.lockmeout.MainActivity">
+
+    <item
+        android:id="@+id/action_rate"
+        android:icon="@drawable/ic_like_outlined"
+        android:orderInCategory="2"
+        android:title="@string/rate_menu"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_setting_outlined"
+        android:orderInCategory="1"
+        android:title="@string/settings_menu"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/nav_fbPage"
+        android:orderInCategory="4"
+        android:title="@string/facebook"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/faq"
+        android:icon="@android:drawable/ic_menu_help"
+        android:orderInCategory="4"
+        android:title="@string/help_title"
+        app:showAsAction="ifRoom" />
+</menu>

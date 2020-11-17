@@ -19,6 +19,8 @@ allprojects {
         google()
         jcenter()
     }
+    project.ext {
+    }
 }
 
 task clean(type: Delete) {
