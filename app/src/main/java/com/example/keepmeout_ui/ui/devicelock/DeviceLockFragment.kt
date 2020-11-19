@@ -1,7 +1,6 @@
 package com.example.keepmeout_ui.ui.devicelock
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,14 +25,17 @@ class DeviceLockFragment : Fragment() {
     private lateinit var viewBinding: FragmentMainBinding
 
     private val simpleTextAdapter: SimpleTextAdapter? by lazy {
-        val res = arrayOf("0", "1", "2", "3", "4", "5", "6", "7", "8", "OFF")
+        val res = arrayOf(
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"
+        )
         val menuItemData: MutableList<MenuItemData> = ArrayList()
         for (i in res.indices) {
             menuItemData.add(MenuItemData(res[i]))
         }
 
         context?.let {
-            SimpleTextAdapter(it, menuItemData, Gravity.TOP or Gravity.CENTER_HORIZONTAL)
+            SimpleTextAdapter(it, menuItemData)
         }
     }
 
