@@ -6,8 +6,8 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.keepmeout_ui.databinding.ActivityMainBinding
-import com.example.keepmeout_ui.ui.main.SectionsPagerAdapter
-import com.example.keepmeout_ui.ui.main.TAB_TITLES
+import com.example.keepmeout_ui.ui.devicelock.SectionsPagerAdapter
+import com.example.keepmeout_ui.ui.devicelock.TAB_TITLES
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(viewBinding.tabLayout, viewBinding.viewPager) { tab, position ->
             tab.text = getPageTitle(position)
         }.attach()
-
+        viewBinding.viewPager.isUserInputEnabled = false
         setSupportActionBar(viewBinding.toolbar)
     }
 

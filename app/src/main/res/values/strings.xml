@@ -9,4 +9,5 @@
     <string name="facebook" translatable="false">Facebook page</string>
     <string name="help_title">Help/FAQ</string>
     <string name="label_lock_warning">Your Device will locked for the above dialed time</string>
+    <string name="label_no_schedule_locks">No Schedule locks found. Your scheduled locks will appear here</string>
 </resources>
