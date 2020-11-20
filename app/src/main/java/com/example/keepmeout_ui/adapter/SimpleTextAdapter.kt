@@ -16,7 +16,7 @@ import github.hellocsl.cursorwheel.CursorWheelLayout.CycleWheelAdapter
  */
 class SimpleTextAdapter constructor(
     private val mContext: Context,
-    private val mMenuItemData: List<MenuItemData>,
+    private val mMenuItemData: List<String>,
     private val mGravity: Int = Gravity.CENTER
 ) : CycleWheelAdapter() {
 
@@ -25,7 +25,7 @@ class SimpleTextAdapter constructor(
     }
 
     override fun getView(parent: View?, position: Int): View {
-        val (mTitle) = getItem(position)
+        val mTitle = getItem(position)
         val mLayoutInflater: LayoutInflater = LayoutInflater.from(mContext)
         val root = mLayoutInflater.inflate(R.layout.wheel_menu_item, null, false)
         val textView = root.findViewById<View>(R.id.wheel_menu_item_tv) as TextView
@@ -38,7 +38,7 @@ class SimpleTextAdapter constructor(
         return root
     }
 
-    override fun getItem(position: Int): MenuItemData {
+    override fun getItem(position: Int): String {
         return mMenuItemData[position]
     }
 }

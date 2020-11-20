@@ -11,10 +11,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.keepmeout_ui.R
 import com.example.keepmeout_ui.adapter.SimpleTextAdapter
-import com.example.keepmeout_ui.data.MenuItemData
 import com.example.keepmeout_ui.databinding.FragmentMainBinding
 import github.hellocsl.cursorwheel.CursorWheelLayout
-import java.util.*
 
 /**
  * A placeholder fragment containing a simple view.
@@ -23,27 +21,24 @@ class DeviceLockFragment : Fragment() {
 
     private lateinit var pageViewModel: PageViewModel
     private lateinit var viewBinding: FragmentMainBinding
-    private val hoursArray = arrayOf(
+    private val hoursArray = listOf(
         "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
         "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"
     )
 
     private val simpleTextAdapter: SimpleTextAdapter? by lazy {
-        val menuItemData: MutableList<MenuItemData> = ArrayList()
-        for (i in hoursArray.indices) {
-            menuItemData.add(MenuItemData(hoursArray[i]))
-        }
-
         context?.let {
-            SimpleTextAdapter(it, menuItemData)
+            SimpleTextAdapter(it, hoursArray)
         }
     }
 
-    private val minutesItemData: MutableList<MenuItemData> by lazy {
-        val data = mutableListOf<MenuItemData>()
+    private val minutesItemData: MutableList<String> by lazy {
+        val data = mutableListOf<String>()
         for (i in 0..59) {
-            if ((i % 5 == 0 || i == 0 || i == 59))
-                data.add(MenuItemData(i.toString()))
+            if ((i % 5 == 0 || i == 0 || i == 1 || i == 2 || i == 3 || i == 4 || i == 59)) {
+                if (i < 10) data.add("0$i")
+                else data.add(i.toString())
+            }
         }
         data
     }
@@ -89,7 +84,7 @@ class DeviceLockFragment : Fragment() {
             CursorWheelLayout.OnMenuSelectedListener {
             override fun onItemSelected(parent: CursorWheelLayout, view: View?, pos: Int) {
                 Toast.makeText(
-                    context, "Minute selected :${minutesItemData[pos].mTitle}",
+                    context, "Minute selected :${minutesItemData[pos]}",
                     Toast.LENGTH_SHORT
                 ).show()
             }

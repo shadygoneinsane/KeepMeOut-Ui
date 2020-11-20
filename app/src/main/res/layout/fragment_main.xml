@@ -13,11 +13,12 @@
         <View
             android:id="@+id/hours"
             android:layout_width="178dp"
-            android:layout_height="463dp"
+            android:layout_height="0dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/ic_timer_ring_hours"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.75"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -63,7 +64,7 @@
             android:background="@drawable/ic_timer_ring_minutes"
             app:layout_constraintBottom_toBottomOf="@+id/hours"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.55"
+            app:layout_constraintHeight_percent="0.6"
             app:layout_constraintHorizontal_bias="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/hours"
@@ -75,7 +76,7 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="@id/minutes"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintHeight_percent="0.62"
+            app:layout_constraintHeight_percent="0.68"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toEndOf="@id/circular_hour_menu"
             app:layout_constraintTop_toTopOf="@id/minutes"
@@ -95,8 +96,8 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/minutes"
             app:layout_constraintEnd_toEndOf="@id/minutes"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toStartOf="@id/minutes"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/circular_minutes_menu"
             app:layout_constraintTop_toTopOf="@id/minutes" />
 
         <ImageView

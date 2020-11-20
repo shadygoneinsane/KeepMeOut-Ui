@@ -9,7 +9,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.example.keepmeout_ui"
+        applicationId "vikesh.dass.keepmeout"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
