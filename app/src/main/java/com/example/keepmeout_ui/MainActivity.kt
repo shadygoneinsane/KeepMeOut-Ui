@@ -5,9 +5,12 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import com.example.keepmeout_ui.databinding.ActivityMainBinding
+import com.example.keepmeout_ui.ui.devicelock.DeviceLockFragment
 import com.example.keepmeout_ui.ui.devicelock.SectionsPagerAdapter
 import com.example.keepmeout_ui.ui.devicelock.TAB_TITLES
+import com.example.keepmeout_ui.ui.schedulelock.ScheduleLockFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -17,7 +20,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         viewBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, this)
+        val sectionsPagerAdapter = SectionsPagerAdapter(
+            listOf<Fragment>(DeviceLockFragment(), ScheduleLockFragment()),
+            this
+        )
         viewBinding.viewPager.adapter = sectionsPagerAdapter
 
         TabLayoutMediator(viewBinding.tabLayout, viewBinding.viewPager) { tab, position ->

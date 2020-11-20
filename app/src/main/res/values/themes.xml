@@ -3,8 +3,8 @@
     <style name="Theme.KeepMeOutUi" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">#03000000</item>
+        <item name="colorOnPrimary">@color/purple_200</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
@@ -12,15 +12,24 @@
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="colorSurface">#03000000</item>
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.KeepMeOutUi.NoActionBar">
+    <style name="Base.Theme.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">
+            ?android:attr/colorBackground
+        </item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">
+            ?attr/colorControlHighlight
+        </item>
+    </style>
+
+    <style name="Theme.KeepMeOutUi.NoActionBar" parent="Theme.KeepMeOutUi">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.KeepMeOutUi.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.KeepMeOutUi.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

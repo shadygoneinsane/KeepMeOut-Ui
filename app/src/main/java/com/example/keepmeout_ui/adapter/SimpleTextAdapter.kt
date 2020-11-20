@@ -14,7 +14,7 @@ import github.hellocsl.cursorwheel.CursorWheelLayout.CycleWheelAdapter
 /**
  *
  */
-class SimpleTextAdapter @JvmOverloads constructor(
+class SimpleTextAdapter constructor(
     private val mContext: Context,
     private val mMenuItemData: List<MenuItemData>,
     private val mGravity: Int = Gravity.CENTER

@@ -23,19 +23,34 @@ class DeviceLockFragment : Fragment() {
 
     private lateinit var pageViewModel: PageViewModel
     private lateinit var viewBinding: FragmentMainBinding
+    private val hoursArray = arrayOf(
+        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
+        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"
+    )
 
     private val simpleTextAdapter: SimpleTextAdapter? by lazy {
-        val res = arrayOf(
-            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
-            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"
-        )
         val menuItemData: MutableList<MenuItemData> = ArrayList()
-        for (i in res.indices) {
-            menuItemData.add(MenuItemData(res[i]))
+        for (i in hoursArray.indices) {
+            menuItemData.add(MenuItemData(hoursArray[i]))
         }
 
         context?.let {
             SimpleTextAdapter(it, menuItemData)
+        }
+    }
+
+    private val minutesItemData: MutableList<MenuItemData> by lazy {
+        val data = mutableListOf<MenuItemData>()
+        for (i in 0..59) {
+            if ((i % 5 == 0 || i == 0 || i == 59))
+                data.add(MenuItemData(i.toString()))
+        }
+        data
+    }
+
+    private val simpleTextAdapter1: SimpleTextAdapter? by lazy {
+        context?.let {
+            SimpleTextAdapter(it, minutesItemData)
         }
     }
 
@@ -62,8 +77,21 @@ class DeviceLockFragment : Fragment() {
         viewBinding.circularHourMenu.setOnMenuSelectedListener(object :
             CursorWheelLayout.OnMenuSelectedListener {
             override fun onItemSelected(parent: CursorWheelLayout, view: View?, pos: Int) {
-                Toast.makeText(context, "Hour Menu selected position:$pos", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(
+                    context, "Hour selected :${hoursArray[pos]}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
+
+        viewBinding.circularMinutesMenu.setAdapter(simpleTextAdapter1)
+        viewBinding.circularMinutesMenu.setOnMenuSelectedListener(object :
+            CursorWheelLayout.OnMenuSelectedListener {
+            override fun onItemSelected(parent: CursorWheelLayout, view: View?, pos: Int) {
+                Toast.makeText(
+                    context, "Minute selected :${minutesItemData[pos].mTitle}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         })
     }

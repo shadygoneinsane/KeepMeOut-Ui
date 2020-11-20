@@ -9,11 +9,12 @@ import github.hellocsl.cursorwheel.CursorWheelLayout
 /**
  *
  */
-class SimpleTextCursorWheelLayout(context: Context, attrs: AttributeSet?) : CursorWheelLayout(context, attrs) {
+class SimpleTextCursorWheelLayout(context: Context, attrs: AttributeSet?) :
+    CursorWheelLayout(context, attrs) {
     override fun onInnerItemSelected(v: View?) {
         super.onInnerItemSelected(v)
         val tv = v?.findViewById<View>(R.id.wheel_menu_item_tv)
-        tv?.animate()?.scaleX(1.4f)?.scaleY(1.4f)
+        tv?.animate()?.scaleX(1.8f)?.scaleY(1.8f)
     }
 
     override fun onInnerItemUnselected(v: View?) {
