@@ -21,14 +21,19 @@ class DeviceLockFragment : Fragment() {
 
     private lateinit var pageViewModel: PageViewModel
     private lateinit var viewBinding: FragmentMainBinding
-    private val hoursArray = listOf(
-        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
-        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"
-    )
+    private val hoursItemData: MutableList<String> by lazy {
+        val data = mutableListOf<String>()
+        for (i in 0..11) {
+            if (i < 10) data.add("0$i")
+            else data.add(i.toString())
+        }
+        data.addAll(data)
+        data
+    }
 
     private val simpleTextAdapter: SimpleTextAdapter? by lazy {
         context?.let {
-            SimpleTextAdapter(it, hoursArray)
+            SimpleTextAdapter(it, hoursItemData)
         }
     }
 
@@ -73,7 +78,7 @@ class DeviceLockFragment : Fragment() {
             CursorWheelLayout.OnMenuSelectedListener {
             override fun onItemSelected(parent: CursorWheelLayout, view: View?, pos: Int) {
                 Toast.makeText(
-                    context, "Hour selected :${hoursArray[pos]}",
+                    context, "Hour selected :${hoursItemData[pos]}",
                     Toast.LENGTH_SHORT
                 ).show()
             }

@@ -1,4 +1,4 @@
-package com.example.keepmeout_ui.ui.devicelock
+package com.example.keepmeout_ui.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

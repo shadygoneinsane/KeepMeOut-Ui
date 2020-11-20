@@ -8,8 +8,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.keepmeout_ui.databinding.ActivityMainBinding
 import com.example.keepmeout_ui.ui.devicelock.DeviceLockFragment
-import com.example.keepmeout_ui.ui.devicelock.SectionsPagerAdapter
-import com.example.keepmeout_ui.ui.devicelock.TAB_TITLES
+import com.example.keepmeout_ui.adapter.SectionsPagerAdapter
+import com.example.keepmeout_ui.adapter.TAB_TITLES
 import com.example.keepmeout_ui.ui.schedulelock.ScheduleLockFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
