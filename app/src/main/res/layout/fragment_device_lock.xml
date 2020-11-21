@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="@drawable/background"
+        tools:context=".ui.devicelock.DeviceLockFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <com.example.keepmeout_ui.ui.widget.SimpleTextCursorWheelLayout
+            android:id="@+id/circular_hour_menu"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_timer_ring_hour_exp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@id/guide_left"
+            app:layout_constraintHeight_percent="0.7"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1"
+            app:wheelBackgroundColor="@android:color/transparent"
+            app:wheelCursorColor="@android:color/transparent"
+            app:wheelPaddingRadio="0.0002"
+            app:wheelSelectedAngle="0"
+            tools:wheelBackgroundColor="@color/background_dark" />
+
+        <TextView
+            android:id="@+id/label_hours"
+            style="@style/TextAppearance.MyTheme.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_hrs"
+            app:layout_constraintBottom_toBottomOf="@id/circular_hour_menu"
+            app:layout_constraintEnd_toEndOf="@id/circular_hour_menu"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/circular_hour_menu" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.57" />
+
+        <com.example.keepmeout_ui.ui.widget.SimpleTextCursorWheelLayout
+            android:id="@+id/circular_minutes_menu"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_timer_ring_min_exp"
+            app:layout_constraintBottom_toBottomOf="@id/circular_hour_menu"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintHeight_percent="0.55"
+            app:layout_constraintStart_toEndOf="@id/guide_right"
+            app:layout_constraintTop_toTopOf="@id/circular_hour_menu"
+            app:wheelBackgroundColor="@android:color/transparent"
+            app:wheelCursorColor="@android:color/transparent"
+            app:wheelPaddingRadio="0.0002"
+            app:wheelSelectedAngle="180"
+            tools:wheelBackgroundColor="@color/background_dark" />
+
+        <TextView
+            android:id="@+id/label_minutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_mins"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/circular_minutes_menu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="@id/circular_minutes_menu"
+            app:layout_constraintTop_toTopOf="@id/circular_minutes_menu" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/bottom_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="circular_hour_menu, circular_minutes_menu" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_lock_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bottom_barrier" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_lock_warning"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
