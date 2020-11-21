@@ -36,10 +36,10 @@
 
         <TextView
             android:id="@+id/label_hours"
+            style="@style/TextAppearance.MyTheme.Bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_hrs"
-            android:textAppearance="@style/TextAppearance.MyTheme.Bold"
             app:layout_constraintBottom_toBottomOf="@id/circular_hour_menu"
             app:layout_constraintEnd_toEndOf="@id/circular_hour_menu"
             app:layout_constraintHorizontal_bias="0.4"
