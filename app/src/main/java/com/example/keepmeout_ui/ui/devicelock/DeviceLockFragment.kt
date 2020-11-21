@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.keepmeout_ui.R
 import com.example.keepmeout_ui.adapter.SimpleTextAdapter
+import com.example.keepmeout_ui.databinding.FragmentDeviceLockBinding
 import com.example.keepmeout_ui.databinding.FragmentMainBinding
 import github.hellocsl.cursorwheel.CursorWheelLayout
 
@@ -20,7 +21,7 @@ import github.hellocsl.cursorwheel.CursorWheelLayout
 class DeviceLockFragment : Fragment() {
 
     private lateinit var pageViewModel: PageViewModel
-    private lateinit var viewBinding: FragmentMainBinding
+    private lateinit var viewBinding: FragmentDeviceLockBinding
     private val hoursItemData: MutableList<String> by lazy {
         val data = mutableListOf<String>()
         for (i in 0..11) {
@@ -63,7 +64,7 @@ class DeviceLockFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_main, container, false)
+        val root = inflater.inflate(R.layout.fragment_device_lock, container, false)
         viewBinding = DataBindingUtil.bind(root)!!
         viewBinding.lifecycleOwner = this
         pageViewModel.text.observe(this, Observer<String> {
