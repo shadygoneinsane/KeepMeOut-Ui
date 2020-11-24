@@ -72,9 +72,7 @@ class LabeledSwitch : ToggleableView {
      * the switch. Can be 0 to not look for defaults.
      */
     constructor(context: Context?, attrs: AttributeSet, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
+        context, attrs, defStyleAttr
     ) {
         initView()
         initProperties(attrs)
@@ -82,8 +80,8 @@ class LabeledSwitch : ToggleableView {
 
     private fun initView() {
         isOn = false
-        labelOn = "ON"
-        labelOff = "OFF"
+        labelOn = context.getString(R.string.label_on)
+        labelOff = context.getString(R.string.label_off)
         enabled = true
         textSize = (12f * resources.displayMetrics.scaledDensity).toInt()
         colorOn = ContextCompat.getColor(context, R.color.colorAccent)
@@ -96,8 +94,8 @@ class LabeledSwitch : ToggleableView {
         rightFgArc = RectF()
         thumbBounds = RectF()
         outlineFgArc = RectF()
-        colorOff = Color.parseColor("#FFFFFF")
-        colorDisabled = Color.parseColor("#D3D3D3")
+        colorOff = ContextCompat.getColor(context, android.R.color.white)
+        colorDisabled = ContextCompat.getColor(context, R.color.colorDisabled)
         strokePaint = Paint().apply {
             color = colorBorder
             style = Paint.Style.STROKE
@@ -118,7 +116,10 @@ class LabeledSwitch : ToggleableView {
                 }
                 R.styleable.Toggle_colorOff -> {
                     colorOff =
-                        attr.getColor(R.styleable.Toggle_colorOff, Color.parseColor("#FFFFFF"))
+                        attr.getColor(
+                            R.styleable.Toggle_colorOff,
+                            ContextCompat.getColor(context, android.R.color.white)
+                        )
                 }
                 R.styleable.Toggle_colorBorder -> {
                     val accentColor: Int = ContextCompat.getColor(context, R.color.colorAccent)
@@ -131,7 +132,10 @@ class LabeledSwitch : ToggleableView {
                 }
                 R.styleable.Toggle_colorDisabled -> {
                     colorDisabled =
-                        attr.getColor(R.styleable.Toggle_colorOff, Color.parseColor("#D3D3D3"))
+                        attr.getColor(
+                            R.styleable.Toggle_colorOff,
+                            ContextCompat.getColor(context, R.color.colorDisabled)
+                        )
                 }
                 R.styleable.Toggle_textOff -> {
                     labelOff = attr.getString(R.styleable.Toggle_textOff)!!
@@ -247,7 +251,7 @@ class LabeledSwitch : ToggleableView {
     }
 
     private fun drawSwitchLabels(canvas: Canvas, paint: Paint) {
-        val maxChar = "N"
+        val maxChar = context.getString(R.string.max_char)
         val textCenter = paint.measureText(maxChar) / 2
         if (isOn) {
             var alpha =

@@ -1,32 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
-            name="toggle"
-            type="String" />
+            name="item"
+            type="com.example.keepmeout_ui.data.ScheduleItemData" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:background="@color/colorAccent">
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="8dp"
+        tools:background="@color/black">
 
-        <com.button.toggle.widget.LabeledSwitch
-            android:id="@+id/switch2"
+        <TextView
+            android:id="@+id/start_time"
+            style="@style/TextAppearance.MyTheme.Bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:text="4 : 20"
+            android:textSize="30sp"
+            app:isEnabled="@{item.isEnabled}"
+            app:layout_constraintEnd_toStartOf="@+id/start_meridiem"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/start_meridiem"
+            style="@style/TextAppearance.MyTheme.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PM"
             android:textSize="14sp"
+            app:isEnabled="@{item.isEnabled}"
+            app:layout_constraintBottom_toBottomOf="@+id/start_time"
+            app:layout_constraintEnd_toStartOf="@+id/end_time"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/start_time"
+            app:layout_constraintTop_toTopOf="@id/start_time"
+            app:layout_constraintVertical_bias="0.65" />
+
+        <ImageView
+            android:id="@+id/separator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="19dp"
+            app:isEnabled="@{item.isEnabled}"
+            app:layout_constraintBottom_toBottomOf="@+id/start_time"
+            app:layout_constraintEnd_toStartOf="@+id/end_time"
+            app:layout_constraintStart_toEndOf="@+id/start_meridiem"
+            app:layout_constraintTop_toTopOf="@id/start_meridiem"
+            app:srcCompat="@drawable/ic_rectangle_enabled" />
+
+        <TextView
+            android:id="@+id/end_time"
+            style="@style/TextAppearance.MyTheme.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="6 : 00"
+            android:textSize="30sp"
+            app:isEnabled="@{item.isEnabled}"
+            app:layout_constraintEnd_toStartOf="@+id/end_meridiem"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/start_meridiem"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/end_meridiem"
+            style="@style/TextAppearance.MyTheme.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PM"
+            android:textSize="14sp"
+            app:isEnabled="@{item.isEnabled}"
+            app:layout_constraintBottom_toBottomOf="@+id/end_time"
+            app:layout_constraintEnd_toStartOf="@+id/labeled_switch"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/end_time"
+            app:layout_constraintTop_toTopOf="@id/end_time"
+            app:layout_constraintVertical_bias="0.65" />
+
+        <TextView
+            android:id="@+id/label_lock"
+            style="@style/TextAppearance.MyTheme.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.mLabel}"
+            app:isEnabled="@{item.isEnabled}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/start_time"
+            app:layout_constraintTop_toBottomOf="@id/start_time"
+            tools:text="study" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_selected_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:itemBinding="@{item.accessoryDaysBinding}"
+            app:items="@{item.getDaysListItems}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/label_lock"
+            app:layout_constraintTop_toBottomOf="@+id/start_time"
+            tools:itemCount="3"
+            tools:listitem="@layout/layout_item_day_view" />
+
+        <com.button.toggle.widget.LabeledSwitch
+            android:id="@+id/labeled_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textSize="@dimen/labeled_switch_text_size"
             app:colorBorder="@color/color_primary"
             app:colorOn="@color/color_primary"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/start_time"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/end_meridiem"
+            app:layout_constraintTop_toTopOf="@id/start_time"
             app:noBackground="true"
-            app:on="false"
+            app:on="@{item.isEnabled}"
             app:textOff="OFF"
             app:textOn="ON" />
     </androidx.constraintlayout.widget.ConstraintLayout>
