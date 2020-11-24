@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="white_dimmer">#80FFFFFF</color>
+
+    <color name="color_primary">#47B9EB</color>
+    <!-- Fully transparent, equivalent to 0x00000000 -->
+    <color name="transparent">#00000000</color>
 </resources>
