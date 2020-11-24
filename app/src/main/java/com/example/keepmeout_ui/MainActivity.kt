@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(viewBinding.tabLayout, viewBinding.viewPager) { tab, position ->
             tab.text = getPageTitle(position)
         }.attach()
+        viewBinding.viewPager.currentItem = 1
         viewBinding.viewPager.isUserInputEnabled = false
         setSupportActionBar(viewBinding.toolbar)
     }
