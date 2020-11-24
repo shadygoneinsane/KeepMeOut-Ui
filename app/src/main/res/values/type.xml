@@ -14,6 +14,14 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="TextAppearance.MyTheme.Regular" parent="Base.TextAppearance.AppCompat">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">19.5dp</item>
+        <item name="fontWeight">400</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="TextAppearance.MyTheme.Medium.Light" parent="TextAppearance.MyTheme.Medium">
         <item name="android:textColor">@color/white_dimmer</item>
     </style>

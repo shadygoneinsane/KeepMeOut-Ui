@@ -32,7 +32,7 @@ class ScheduleLockFragment : Fragment() {
         viewBinding = DataBindingUtil.bind(root)!!
         viewBinding.viewModel = pageViewModel
         viewBinding.lifecycleOwner = this
-        pageViewModel.setListItems()
+        pageViewModel.inflateEmpty()
         return root
     }
 

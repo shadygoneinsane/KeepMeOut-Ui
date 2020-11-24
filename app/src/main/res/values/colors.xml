@@ -12,4 +12,6 @@
     <color name="color_primary">#47B9EB</color>
     <!-- Fully transparent, equivalent to 0x00000000 -->
     <color name="transparent">#00000000</color>
+
+    <color name="disabled">#9F9599</color>
 </resources>

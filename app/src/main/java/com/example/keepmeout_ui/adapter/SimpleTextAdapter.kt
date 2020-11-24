@@ -1,14 +1,12 @@
 package com.example.keepmeout_ui.adapter
 
 import android.content.Context
-import android.util.TypedValue
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
 import com.example.keepmeout_ui.R
-import com.example.keepmeout_ui.data.MenuItemData
 import github.hellocsl.cursorwheel.CursorWheelLayout.CycleWheelAdapter
 
 /**

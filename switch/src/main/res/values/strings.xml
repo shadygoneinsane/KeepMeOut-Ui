@@ -1,3 +1,5 @@
 <resources>
-
+    <string name="label_off">ON</string>
+    <string name="label_on">OFF</string>
+    <string name="max_char">N</string>
 </resources>

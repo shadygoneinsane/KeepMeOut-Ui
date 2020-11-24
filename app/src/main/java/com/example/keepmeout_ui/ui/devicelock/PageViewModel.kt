@@ -7,6 +7,7 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.example.keepmeout_ui.BR
 import com.example.keepmeout_ui.R
+import com.example.keepmeout_ui.data.ScheduleItemData
 import me.tatarka.bindingcollectionadapter2.itembindings.OnItemBindClass
 
 class PageViewModel : ViewModel() {
@@ -26,12 +27,31 @@ class PageViewModel : ViewModel() {
     }
 
     fun setListItems() {
+        if (items.size == 1) {
+            items.clear()
+            items.add(ScheduleItemData("study").apply {
+                setDaysListItems(listOf("W", "T", "F"))
+            })
+            items.add(ScheduleItemData("work", false).apply {
+                setDaysListItems(listOf("M", "T", "W", "T", "F"))
+            })
+            items.add(ScheduleItemData("meditation").apply {
+                setDaysListItems(listOf("Everyday"))
+            })
+        } else
+            inflateEmpty()
+    }
+
+    fun inflateEmpty() {
         items.clear()
-        items.add("abc")
+        items.add("empty")
     }
 
     val accessoryBinding: OnItemBindClass<Any> = OnItemBindClass<Any>()
-        .map(String::class.java) { itemBinding, _, _ ->
-            itemBinding.clearExtras().set(BR.toggle, R.layout.layout_item_schedule_lock)
+        .map(ScheduleItemData::class.java) { itemBinding, _, _ ->
+            itemBinding.clearExtras().set(BR.item, R.layout.layout_item_schedule_lock)
+        }
+        .map(String()::class.java) { itemBinding, _, _ ->
+            itemBinding.clearExtras().set(BR.data, R.layout.layout_item_empty_view)
         }
 }
