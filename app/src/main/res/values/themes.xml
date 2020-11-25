@@ -30,8 +30,10 @@
 
     <style name="Theme.KeepMeOutUi.NoActionBar" parent="Theme.KeepMeOutUi">
         <item name="windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="Theme.KeepMeOutUi.FullScreen" parent="Theme.KeepMeOutUi.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
 </resources>
